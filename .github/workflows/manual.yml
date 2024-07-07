@@ -8,8 +8,15 @@ on:
         default: Hello
         required: true
         description: A cheerful word
+      service:
+        type: choice
+        options:
+          - sandbox
+          - dev
+          - prod
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ inputs.greeting }}"
+      - run: echo "${{ inputs.service }}"
